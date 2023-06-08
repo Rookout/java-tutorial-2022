@@ -12,4 +12,7 @@ COPY --from=build /app/build/libs/*.jar /app/todobackend-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
 ENV SERVER_PORT 8080
 
+RUN curl -L "https://search.maven.org/remote_content?g=com.rookout&a=rook&v=LATEST" -o /app/rook.jar
+ENV JAVA_TOOL_OPTIONS "-javaagent:/app/rook.jar"
+
 ENTRYPOINT ["java", "-jar","app/todobackend-0.0.1-SNAPSHOT.jar"]
