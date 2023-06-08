@@ -15,4 +15,7 @@ ENV SERVER_PORT 8080
 RUN curl -L "https://search.maven.org/remote_content?g=com.rookout&a=rook&v=LATEST" -o /app/rook.jar
 ENV JAVA_TOOL_OPTIONS "-javaagent:/app/rook.jar"
 
+ENV ROOKOUT_TOKEN XXXXXXXXXXXXXXXX
+ENV ROOKOUT_LABELS "env:dev"
+
 ENTRYPOINT ["java", "-jar","app/todobackend-0.0.1-SNAPSHOT.jar"]
