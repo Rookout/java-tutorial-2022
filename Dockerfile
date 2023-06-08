@@ -18,4 +18,6 @@ ENV JAVA_TOOL_OPTIONS "-javaagent:/app/rook.jar"
 ENV ROOKOUT_TOKEN XXXXXXXXXXXXXXXX
 ENV ROOKOUT_LABELS "env:dev"
 
+COPY .git /.git
+
 ENTRYPOINT ["java", "-jar","app/todobackend-0.0.1-SNAPSHOT.jar"]
